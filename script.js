@@ -85,7 +85,7 @@ function drawTeamMember(teamMember){
   // 2
   const name = teamMember.name;
   const role = teamMember.role;
-  const image = teamMember.image;
+  const image = teamMember.image.startsWith('http') ? teamMember.image : `img/${teamMember.image}`;
   const qualities = teamMember.qualities;
 
   // 3
@@ -93,7 +93,7 @@ function drawTeamMember(teamMember){
   <div class="team-card">
     <div class="card-image">
       <img
-        src="img/${image}"
+        src="${image}"
         alt="${name}"
       />
     </div>
@@ -126,7 +126,7 @@ function addNewMember(){
   const image = document.getElementById('image').value;
   const qualities = document.getElementById('qualities').value;
 
-  // splitto in un nuovo array la stringa qualities in base alla virgolo
+  // splitto in un nuovo array la stringa qualities in base alla virgola
   const arrNewQualities = qualities.split(',');
   console.log(arrNewQualities)
   // creo un nuovo array ripulendo dagli spazi vuoti
